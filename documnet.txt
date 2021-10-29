@@ -1,0 +1,70 @@
+Node.js JavaScript 런타임
+개발을 도와주는 모듈 들을 변환시켜주어 브라우저에서 동작되도록 해주는 
+
+Node.js 설치 홈페이지에서 
+LTS (Long Term Supported)
+안정되고 신뢰도가 높은 지원이 보장되는 버전, 
+
+NVM (Node Version Manager) 
+: nodejs 의 버전을 관리해주는 툴
+
+MAC OS (nvm 검색하여 공식 사이트에서)
+Window (nvm-windows) 
+출처: <https://github.com/nvm-sh/nvm> 
+
+nvm 명령어 
+ls
+Use
+--help
+
+
+NPM (Node Package Manager)
+: 전 세계의 개발자들이 만든 다양한 기능(패키지, 모듈)들을 관리
+
+npm init -y 
+: 통해 package.json 생성
+
+npm install parcel-bundler -D
+: 파셀 번들러 설치 
+
+npm install lodash 
+: lodash 설치 
+
+package-lock.json
+: package.json 직접적으로 관리하는 개념이고 lock은 자동으로 관리되는 형태
+
+-D 옵션
+devDependencies, 개발 의존성으로 개발시에만 사용됨
+
+일반
+Dependencies, 실제 웹 브라우저에서도 동작함
+
+package.json 의 script 수정
+"dev": "parcel index.html",
+"build":"parcel build index.html"
+
+npm run dev
+: 을 통해 dev script 실행
+
+
+import _ from 'lodash';
+
+console.log(_.camelCase('hello world'));
+
+npm run build
+: dist 폴더를 생성하고 내부에 작성한 파일들을 난독화하여 생성
+
+*코드 난독화는 작성된 코드를 읽기 어렵게 만드는 작업을 말합니다.
+빌드된 결과(제품)는 브라우저에서 해석되는 용도로, 용량을 축소하고 읽기 어렵게 만드는 등의 최적화를 거치는 것이 좋습니다. 
+
+*번들(Bundle)은 우리가 프로젝트 개발에 사용한 여러 모듈(패키지)을 하나로 묶어내는 작업을 말합니다.
+
+^Major.Minor.Patch
+E.g, ^12.14.1
+
+Major 버전 안에서 가장 최신 버전으로 업데이트 가능
+-----------------------------------
+npm install lodash@4.17.20
+npm update lodash
+
+: package.json 파일에서 버전에서 ^ 기호를 삭제할 시에 update 명령어가 동작하지 않음
